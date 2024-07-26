@@ -7,7 +7,7 @@ const CuisinePage: React.FC = () => {
 
   return (
     <div>
-      <h1>{t('cuisinePageTitle')}</h1>
+      <h1>🥘 {t('cuisinePageTitle')}</h1>
       <CuisineSelection />
     </div>
   );

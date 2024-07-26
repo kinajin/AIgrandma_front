@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Recipe {
   title: string;
   ingredients: string[];
-  instructions: string;
+  instructions: string[];
 }
 
 interface RecipeData {
@@ -12,13 +13,22 @@ interface RecipeData {
 }
 
 const RecipeDisplay: React.FC = () => {
+  const { t } = useTranslation();
   const [recipeData, setRecipeData] = useState<RecipeData | null>(null);
 
   useEffect(() => {
-    // 로컬 스토리지 또는 API로부터 JSON 데이터를 가져오는 예제
     const storedRecipeData = localStorage.getItem('recipeData');
     if (storedRecipeData) {
-      setRecipeData(JSON.parse(storedRecipeData));
+      try {
+        const parsedData = JSON.parse(storedRecipeData);
+        setRecipeData(parsedData);
+      } catch (error) {
+        console.error('Error parsing JSON data:', error);
+        setRecipeData({
+          grandmaTalk: 'Error loading recipe data',
+          recipes: [],
+        });
+      }
     }
   }, []);
 
@@ -27,19 +37,30 @@ const RecipeDisplay: React.FC = () => {
   }
 
   return (
-    <div>
+    <div className="recipePage">
       <h2>{recipeData.grandmaTalk}</h2>
       {recipeData.recipes.map((recipe, index) => (
         <div key={index} className="recipe">
           <h3>{recipe.title}</h3>
-          <h4>Ingredients:</h4>
+          <h4>{t('Ingredients')}:</h4>
           <ul>
             {recipe.ingredients.map((ingredient, idx) => (
               <li key={idx}>{ingredient}</li>
             ))}
           </ul>
-          <h4>Instructions:</h4>
-          <p>{recipe.instructions}</p>
+          <h4>{t('Instructions')}:</h4>
+          <ol>
+            {recipe.instructions.map((line, idx) => (
+              <li
+                key={idx}
+                className={
+                  idx === recipe.instructions.length - 1 ? 'grandma_tip' : ''
+                }
+              >
+                {line}
+              </li>
+            ))}
+          </ol>
         </div>
       ))}
     </div>

@@ -7,7 +7,7 @@ const RecipePage: React.FC = () => {
 
   return (
     <div>
-      <h1>{t('RecipePageTitle')}</h1>
+      <h1>🧑‍🍳 {t('RecipePageTitle')}</h1>
       <RecipeDisplay />
     </div>
   );

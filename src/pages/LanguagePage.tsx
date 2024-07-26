@@ -7,7 +7,7 @@ const LanguagePage: React.FC = () => {
 
   return (
     <div>
-      <h1>{t('languagePageTitle')}</h1>
+      <h1>💬 {t('languagePageTitle')}</h1>
       <LanguageSelection />
     </div>
   );

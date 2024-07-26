@@ -57,13 +57,13 @@ button:active {
   transform: scale(1);
 }
 
-/* 선택된 버튼 스타일 */
+/* Selected button styling */
 button.selected {
   background-color: #ff8c00; /* DarkOrange */
   color: white;
 }
 
-/* ingredient selection button styling */
+/* Ingredient selection button styling */
 button.ingredient-button {
   padding: 5px 10px;
 }
@@ -80,4 +80,53 @@ button.submit-button:hover {
 
 button.submit-button:active {
   background-color: #ff7f50; /* Coral */
+}
+
+/* Recipe container styling */
+
+.recipePage h2 {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-size: 1.75rem;
+}
+
+/* Recipe title styling */
+.recipePage h3 {
+  color: #333;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+/* Recipe subtitle styling (Ingredients and Instructions) */
+.recipePage h4 {
+  color: #ff6347; /* Tomato color */
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+/* Ingredient list styling */
+.recipePage ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.recipePage ol {
+  /* background-color: blue; */
+  padding: 0px;
+  margin-left: 70px;
+}
+
+.recipe {
+  background-color: #ffffff; /* White background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  padding: 20px;
+}
+
+/* Grandma tip styling */
+.grandma_tip {
+  font-weight: bold;
+  color: #ff6347; /* Optional: change color for emphasis */
 }
