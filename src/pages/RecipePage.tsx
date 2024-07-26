@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-// import RecipeDisplay from '../components/RecipeDisplay';
+import RecipeDisplay from '../components/RecipeDisplay';
 
 const RecipePage: React.FC = () => {
   const { t } = useTranslation();
@@ -8,7 +8,7 @@ const RecipePage: React.FC = () => {
   return (
     <div>
       <h1>{t('RecipePageTitle')}</h1>
-      {/* <RecipeDisplay /> */}
+      <RecipeDisplay />
     </div>
   );
 };

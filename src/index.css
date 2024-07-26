@@ -1,68 +1,83 @@
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* index.css */
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
+/* Reset some basic elements to provide a consistent baseline */
+body,
+h1,
+h2,
+p,
+div,
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
+/* Body styling */
+body {
+  background-color: #fffaf0; /* A light background to make the buttons pop */
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container styling */
+div {
+  padding: 10px;
+}
+
+/* Category headers */
+h2 {
+  color: #ff6347; /* Tomato color */
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+/* Button styling */
+button {
+  background-color: #ffffff; /* OrangeRed */
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background-color: #eeeeee;
+  transform: scale(1.05);
+}
+
+button:active {
+  background-color: #000000;
+  color: #ffffff;
+  transform: scale(1);
+}
+
+/* 선택된 버튼 스타일 */
+button.selected {
+  background-color: #ff8c00; /* DarkOrange */
+  color: white;
+}
+
+/* ingredient selection button styling */
+button.ingredient-button {
+  padding: 5px 10px;
+}
+
+/* Submit button styling */
+button.submit-button {
+  background-color: #ff8c00; /* DarkOrange */
+  margin-top: 20px;
+}
+
+button.submit-button:hover {
+  background-color: #ffa500; /* Orange */
+}
+
+button.submit-button:active {
+  background-color: #ff7f50; /* Coral */
+}
