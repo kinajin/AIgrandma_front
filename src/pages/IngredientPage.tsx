@@ -7,9 +7,11 @@ const IngredientPage: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <div className="bg-black min-h-screen flex flex-col justify-center items-center">
       <NavigationButtons />
-      <h1>🦐 {t('ingredientPageTitle')}</h1>
+      <h1 className="m-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl dark:text-white">
+        🦐 {t('ingredientPageTitle')}
+      </h1>
       <IngredientSelection />
     </div>
   );

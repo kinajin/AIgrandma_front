@@ -8,7 +8,7 @@ const resources = {
     translation: {
       Ingredients: 'Ingredients',
       Instructions: 'Instructions',
-      languagePageTitle: 'Choose your language',
+      languagePageTitle: 'Welcome! AI Grandma teach you how to cook!',
       cuisinePageTitle: 'Choose your cuisine style',
       ingredientPageTitle: 'Select your ingredients',
       RecipePageTitle: 'Recipe',
@@ -317,7 +317,7 @@ const resources = {
     translation: {
       Ingredients: '재료',
       Instructions: '조리 방법',
-      languagePageTitle: '할미가 어떤 언어로 요리를 가르쳐줄까?',
+      languagePageTitle: 'AI 할미가 요리를 가르쳐줄게~!',
       cuisinePageTitle: '우리 똥강아지들 무슨 요리 해줄까요?',
       ingredientPageTitle: '냉장고에 있는 재료 마음껏 골라봐~!',
       RecipePageTitle: '레시피',
@@ -626,7 +626,7 @@ const resources = {
     translation: {
       Ingredients: '食材',
       Instructions: '做法',
-      languagePageTitle: '选择语言',
+      languagePageTitle: '欢迎！AI 奶奶教你如何烹饪！',
       cuisinePageTitle: '选择菜系',
       ingredientPageTitle: '选择食材',
       RecipePageTitle: '食谱',

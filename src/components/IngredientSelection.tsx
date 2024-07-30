@@ -6,8 +6,8 @@ import { sendRecipeRequest } from '../api/geminiApi';
 
 const IngredientSelection: React.FC = () => {
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
-  const [isLoading, setIsLoading] = useState(false); // 로딩 상태 추가
-  const [searchTerm, setSearchTerm] = useState(''); // 검색어 상태 추가
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -35,60 +35,68 @@ const IngredientSelection: React.FC = () => {
 
   const handleSubmit = async () => {
     localStorage.setItem('ingredients', JSON.stringify(selectedIngredients));
-    setIsLoading(true); // 로딩 시작
+    setIsLoading(true);
     try {
-      await sendRecipeRequest(); // API 호출
+      await sendRecipeRequest();
       navigate('/recipe');
     } catch (error) {
-      // 에러 처리
       console.error('Failed to fetch recipes:', error);
     } finally {
-      setIsLoading(false); // 로딩 종료
+      setIsLoading(false);
     }
   };
 
   return (
     <div>
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={handleSearchChange}
-        placeholder={t('searchPlaceholder')}
-        className="search-input"
-      />
+      <form className="max-w-md mx-auto m-4">
+        <label
+          htmlFor="default-search"
+          className="m-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+        >
+          {t('search')}
+        </label>
+        <div className="relative">
+          <input
+            type="search"
+            id="default-search"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="block w-full p-4 ps-10 text-sm  text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder={t('🔍')}
+            required
+          />
+        </div>
+      </form>
       {Object.keys(filteredCategories).map((category) => (
-        <div key={category}>
-          <h2>
+        <div
+          className="m-12 bg-gradient-to-b from-black to-white/5 rounded-xl outline  outline-white/10 outline-0.5 p-12"
+          key={category}
+        >
+          <h2 className="mb-8 text-2xl font-extrabold leading-none text-white">
             {filteredCategories[category].emoji} {t(category)}
           </h2>
           {filteredCategories[category].items.map((ingredient) => (
             <button
               key={ingredient.label}
-              className={`ingredient-button py-1.5 px-3.5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-orange-500 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700 ${
+              className={`ingredient-button py-1.5 px-3.5 me-2 mb-2 text-sm font-medium text-gray-400 focus:outline-none bg-gray-900 rounded-full border border-gray-800 hover:bg-gray-100 hover:text-orange-500 focus:z-10 focus:ring-4 focus:ring-gray-100  ${
                 selectedIngredients.includes(ingredient.label)
-                  ? 'bg-orange-500 text-white border-orange-500'
+                  ? 'bg-orange-500 text-gray-950 border-orange-500'
                   : ''
               }`}
               onClick={() => handleIngredientToggle(ingredient.label)}
             >
-              <span
-                className={`${
-                  selectedIngredients.includes(ingredient.label)
-                    ? 'text-orange-500'
-                    : ''
-                }`}
-              >
-                {ingredient.emoji}
-              </span>
+              <span>{ingredient.emoji}</span>
+              &nbsp;&nbsp;
               {t(ingredient.label)}
             </button>
           ))}
         </div>
       ))}
+
       <button
         onClick={handleSubmit}
         disabled={isLoading}
-        className="submit-button py-1.5 px-3 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+        className="submit-button py-1.5 px-3 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-gray-500 rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
       >
         {isLoading ? t('loading') : t('submit')}
       </button>
