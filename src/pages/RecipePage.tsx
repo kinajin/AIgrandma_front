@@ -7,9 +7,9 @@ const RecipePage: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div>
+    <div className="page-container">
       <NavigationButtons />
-      <h1>🧑‍🍳 {t('RecipePageTitle')}</h1>
+      <h1 className="title">🧑‍🍳 {t('RecipePageTitle')}</h1>
       <RecipeDisplay />
     </div>
   );

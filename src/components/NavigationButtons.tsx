@@ -1,6 +1,7 @@
 // src/components/NavigationButtons.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../styles/tailwind.css';
 
 const NavigationButtons: React.FC = () => {
   const navigate = useNavigate();
