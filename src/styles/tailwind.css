@@ -100,7 +100,7 @@
   }
 
   .recipe {
-    @apply m-8 bg-gradient-to-b from-black to-white/5 rounded-xl outline outline-white/10 outline-1 p-12;
+    @apply m-8 bg-gradient-to-b from-black to-white/5 rounded-xl outline outline-white/10 outline-1 p-8;
   }
 
   .recipe-title {
