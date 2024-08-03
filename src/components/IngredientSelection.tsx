@@ -7,6 +7,7 @@ import '../styles/tailwind.css';
 
 import SearchIcon from '../icons/SearchIcon';
 import ClearIcon from '../icons/ClearIcon';
+import LoadingMessages from '../components/LoadingMessages'; // LoadingMessages 가져오기
 
 const IngredientSelection: React.FC = () => {
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
@@ -86,7 +87,7 @@ const IngredientSelection: React.FC = () => {
         disabled={isLoading}
         className="submit-button"
       >
-        {isLoading ? t('loading...') : t('submit')}
+        {isLoading ? <LoadingMessages /> : t('submit')}
       </button>
 
       {/* ingredient-selection */}

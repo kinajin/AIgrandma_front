@@ -1,3 +1,4 @@
+// src/components/RecipeDisplay.tsx
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../styles/tailwind.css';
@@ -38,30 +39,34 @@ const RecipeDisplay: React.FC = () => {
   }
 
   return (
-    <div className="recipePage">
-      <h2>{recipeData.grandmaTalk}</h2>
+    <div className="recipePage-container">
+      <h2 className="recipePage-title">{recipeData.grandmaTalk}</h2>
       {recipeData.recipes.map((recipe, index) => (
-        <div key={index} className="recipe">
-          <h3>{recipe.title}</h3>
-          <h4>{t('Ingredients')}:</h4>
-          <ul>
-            {recipe.ingredients.map((ingredient, idx) => (
-              <li key={idx}>{ingredient}</li>
-            ))}
-          </ul>
-          <h4>{t('Instructions')}:</h4>
-          <ol>
-            {recipe.instructions.map((line, idx) => (
-              <li
-                key={idx}
-                className={
-                  idx === recipe.instructions.length - 1 ? 'grandma_tip' : ''
-                }
-              >
-                {line}
-              </li>
-            ))}
-          </ol>
+        <div key={index} className="recipe-container">
+          <div className="recipe">
+            <h3 className="recipe-title">{recipe.title}</h3>
+            <h4 className="ingredients-title">{t('Ingredients')}:</h4>
+            <ul>
+              {recipe.ingredients.map((ingredient, idx) => (
+                <li className="ingredients" key={idx}>
+                  {ingredient}
+                </li>
+              ))}
+            </ul>
+            <h4 className="instruction-title">{t('Instructions')}:</h4>
+            <ol>
+              {recipe.instructions.map((line, idx) => (
+                <li
+                  key={idx}
+                  className={`instructions ${
+                    idx === recipe.instructions.length - 1 ? 'grandma_tip' : ''
+                  }`}
+                >
+                  {line}
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       ))}
     </div>
