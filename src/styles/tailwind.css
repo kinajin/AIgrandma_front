@@ -44,6 +44,19 @@
     @apply w-full h-auto max-h-full;
   }
 
+  /* Responsive adjustments for video */
+  @screen sm {
+    .responsive-video {
+      @apply w-1/2; /* 모바일에서는 너비를 50%로 조정 */
+    }
+  }
+
+  @screen md {
+    .responsive-video {
+      @apply w-3/4; /* 태블릿에서는 너비를 75%로 조정 */
+    }
+  }
+
   /* ingredient page */
   .search-input {
     @apply block w-full py-2.5 px-5 p-4 ps-10 text-sm font-normal text-gray-900  rounded-lg bg-white focus:ring-orange-500 focus:border-orange-500;
