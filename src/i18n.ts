@@ -317,9 +317,9 @@ const resources = {
     translation: {
       Ingredients: '재료',
       Instructions: '조리 방법',
-      languagePageTitle: 'AI 할미가 요리를 가르쳐줄게~!',
-      cuisinePageTitle: '우리 똥강아지들 무슨 요리 해줄까요?',
-      ingredientPageTitle: '냉장고에 있는 재료 마음껏 골라봐~!',
+      languagePageTitle: 'AI 할미가 요리를 가르쳐줄게!',
+      cuisinePageTitle: '우리 똥강아지 무슨 요리 해줄까?',
+      ingredientPageTitle: '냉장고에 있는 재료 마음껏 골라봐!',
       RecipePageTitle: '레시피',
       chinese: '중국 요리',
       japanese: '일본 요리',
