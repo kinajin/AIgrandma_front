@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { categories } from '../constants/ingredients';
 import { sendRecipeRequest } from '../api/geminiApi';
 import '../styles/tailwind.css';
+
+import SearchIcon from '../icons/SearchIcon';
+import ClearIcon from '../icons/ClearIcon';
 
 const IngredientSelection: React.FC = () => {
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
@@ -17,13 +20,16 @@ const IngredientSelection: React.FC = () => {
       const updatedIngredients = prev.includes(ingredient)
         ? prev.filter((item) => item !== ingredient)
         : [...prev, ingredient];
-      console.log('Updated Ingredients:', updatedIngredients);
       return updatedIngredients;
     });
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
+  };
+
+  const handleClearSearch = () => {
+    setSearchTerm('');
   };
 
   const filteredCategories = Object.keys(categories).reduce((acc, category) => {
@@ -50,7 +56,7 @@ const IngredientSelection: React.FC = () => {
   };
 
   return (
-    <div className="page-container">
+    <div className="flex flex-col justify-start min-h-screen">
       {/* search-input */}
       <form className="max-w-md mx-auto m-4">
         <div className="relative">
@@ -60,10 +66,17 @@ const IngredientSelection: React.FC = () => {
             value={searchTerm}
             onChange={handleSearchChange}
             className="search-input"
-            placeholder={t('🔍')}
+            placeholder={t('searchIngredients')}
             aria-label={t('search')}
             required
           />
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+            {searchTerm ? (
+              <ClearIcon onClick={handleClearSearch} />
+            ) : (
+              <SearchIcon />
+            )}
+          </div>
         </div>
       </form>
 
@@ -73,7 +86,7 @@ const IngredientSelection: React.FC = () => {
         disabled={isLoading}
         className="submit-button"
       >
-        {isLoading ? t('loading') : t('submit')}
+        {isLoading ? t('loading...') : t('submit')}
       </button>
 
       {/* ingredient-selection */}
