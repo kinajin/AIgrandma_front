@@ -13,7 +13,7 @@ const LoadingMessages: React.FC = () => {
     }, 3000); // 3초마다 메시지 변경
 
     const dotsInterval = setInterval(() => {
-      setDots((prevDots) => (prevDots.length < 3 ? prevDots + '.' : ''));
+      setDots((prevDots) => (prevDots.length < 5 ? prevDots + '.' : ''));
     }, 500); // 0.5초마다 점 추가
 
     return () => {

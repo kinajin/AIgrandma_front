@@ -18,7 +18,7 @@ const model = genAI.getGenerativeModel({
 
   JSON Output:
   {
-    "grandmaTalk": "👵🍲 Cooking with love makes the food taste better. Take your time and enjoy the process~ 💖🍴",
+    "grandmaTalk": [ "👵🍲 Cooking with love makes the food taste better.","Take your time and enjoy the process~ 💖🍴"],f
     "recipes": [
       {
         "title": "Dubu Jorim (Braised Tofu) 🍲🍽️",

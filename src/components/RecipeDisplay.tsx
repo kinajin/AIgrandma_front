@@ -10,7 +10,7 @@ interface Recipe {
 }
 
 interface RecipeData {
-  grandmaTalk: string;
+  grandmaTalk: string[];
   recipes: Recipe[];
 }
 
@@ -27,7 +27,7 @@ const RecipeDisplay: React.FC = () => {
       } catch (error) {
         console.error('Error parsing JSON data:', error);
         setRecipeData({
-          grandmaTalk: 'Error loading recipe data',
+          grandmaTalk: ['Error loading recipe data'],
           recipes: [],
         });
       }
@@ -40,7 +40,11 @@ const RecipeDisplay: React.FC = () => {
 
   return (
     <div className="recipePage-container">
-      <h2 className="recipePage-title">{recipeData.grandmaTalk}</h2>
+      <h2 className="recipePage-title">
+        {recipeData.grandmaTalk.map((line, idx) => (
+          <div key={idx}>{line}</div>
+        ))}
+      </h2>
       {recipeData.recipes.map((recipe, index) => (
         <div key={index} className="recipe-container">
           <div className="recipe">
