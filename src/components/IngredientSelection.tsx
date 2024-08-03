@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { categories } from '../constants/ingredients';
@@ -13,11 +13,13 @@ const IngredientSelection: React.FC = () => {
   const { t } = useTranslation();
 
   const handleIngredientToggle = (ingredient: string) => {
-    setSelectedIngredients((prev) =>
-      prev.includes(ingredient)
+    setSelectedIngredients((prev) => {
+      const updatedIngredients = prev.includes(ingredient)
         ? prev.filter((item) => item !== ingredient)
-        : [...prev, ingredient]
-    );
+        : [...prev, ingredient];
+      console.log('Updated Ingredients:', updatedIngredients);
+      return updatedIngredients;
+    });
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,17 +78,14 @@ const IngredientSelection: React.FC = () => {
 
       {/* ingredient-selection */}
       {Object.keys(filteredCategories).map((category) => (
-        <div
-          className="m-8 bg-gradient-to-b from-black to-white/5 rounded-xl outline outline-white/10 outline-0.5 p-12"
-          key={category}
-        >
-          <h2 className="mb-8 text-2xl font-extrabold leading-none text-white">
+        <div className="category-container" key={category}>
+          <h2 className="category-title">
             {filteredCategories[category].emoji} {t(category)}
           </h2>
           {filteredCategories[category].items.map((ingredient) => (
             <button
               key={ingredient.label}
-              className={` ingredient-button ${
+              className={`ingredient-button ${
                 selectedIngredients.includes(ingredient.label)
                   ? 'bg-orange-500 text-gray-950 border-orange-500'
                   : ''

@@ -16,33 +16,24 @@
 }
 
 @layer components {
+  /* all page */
   .page-container {
     @apply min-h-screen w-full flex flex-col justify-center items-center bg-black;
     max-width: none !important; /* 최대 너비 제거 */
   }
 
+  /* header */
   .title {
     @apply m-12 text-2xl font-extrabold leading-none tracking-tight text-white md:text-3xl lg:text-5xl;
   }
 
+  .navigation-button {
+    @apply text-black mt-8 mb-8 bg-white hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center;
+  }
+
+  /* language page & cuisine page */
   .white-button {
     @apply py-2.5 px-5 me-2 mb-2 text-sm font-medium text-black focus:outline-none bg-gray-100 rounded-lg  hover:bg-white focus:z-10 focus:ring-4 focus:ring-gray-100;
-  }
-
-  .search-input {
-    @apply block w-full py-2.5 px-5 p-4 ps-10 text-sm font-normal text-gray-900  rounded-lg bg-white focus:ring-orange-500 focus:border-orange-500;
-  }
-
-  .submit-button {
-    @apply mt-4 py-2.5 px-5 text-sm font-bold text-black rounded-lg  bg-gradient-to-r from-orange-200 via-orange-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100;
-  }
-
-  .search-input::placeholder {
-    @apply text-sm font-light;
-  }
-
-  .ingredient-button {
-    @apply py-1.5 px-3.5 me-2 mb-2 text-sm font-medium text-gray-400 focus:outline-none bg-gray-900 rounded-full border border-gray-800 hover:bg-orange-500 hover:text-black focus:bg-orange-500 focus:text-white focus:z-10;
   }
 
   .video-container {
@@ -53,8 +44,32 @@
     @apply w-full h-auto max-h-full;
   }
 
-  /* 추가  */
+  /* ingredient page */
+  .search-input {
+    @apply block w-full py-2.5 px-5 p-4 ps-10 text-sm font-normal text-gray-900  rounded-lg bg-white focus:ring-orange-500 focus:border-orange-500;
+  }
 
+  .search-input::placeholder {
+    @apply text-sm font-light;
+  }
+
+  .submit-button {
+    @apply mt-4 py-2.5 px-5 text-sm font-bold text-black rounded-lg  bg-gradient-to-r from-orange-200 via-orange-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100;
+  }
+
+  .ingredient-button {
+    @apply py-1.5 px-3.5 me-2 mb-2 text-sm font-medium text-gray-400 focus:outline-none bg-gray-900 rounded-full border border-gray-800 hover:bg-orange-500 hover:text-black focus:bg-orange-500 focus:text-white focus:z-10;
+  }
+
+  .category-container {
+    @apply m-8 bg-gradient-to-b from-black to-white/5 rounded-xl outline outline-white/10 outline-1 p-12;
+  }
+
+  .category-title {
+    @apply mb-8 text-2xl font-extrabold leading-none text-white;
+  }
+
+  /* recipe page */
   .recipePage {
     @apply max-w-2xl mx-auto p-4 bg-gray-900 text-white rounded-lg;
   }

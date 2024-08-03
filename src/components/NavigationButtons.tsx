@@ -11,7 +11,7 @@ const NavigationButtons: React.FC = () => {
       <button
         type="button"
         onClick={() => navigate(-1)}
-        className="text-black mt-8 mb-8 bg-white hover:bg-gray-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="navigation-button"
       >
         <svg
           className="w-5 h-5"
