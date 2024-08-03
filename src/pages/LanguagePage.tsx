@@ -1,3 +1,4 @@
+// LanguagePage.tsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSelection from '../components/LanguageSelection';
@@ -12,7 +13,7 @@ const LanguagePage: React.FC = () => {
   return (
     <div className="page-container">
       {/* NavigationButtons */}
-      <motion.video {...videoProps}>
+      <motion.video {...videoProps} className="responsive-video">
         <source src={aiGrandmaVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </motion.video>

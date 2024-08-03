@@ -7,7 +7,7 @@ type CombinedVideoProps = VideoHTMLAttributes<HTMLVideoElement> & MotionProps;
 
 // Combined Props 정의
 export const videoProps: CombinedVideoProps = {
-  width: 400,
+  // width: 400,
   loop: true,
   autoPlay: true,
   muted: true,
