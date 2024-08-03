@@ -53,14 +53,14 @@
   @media (min-width: 640px) {
     /* sm */
     .responsive-video {
-      @apply w-1/2; /* 모바일에서는 너비를 50%로 조정 */
+      @apply w-1/4; /* 모바일에서는 너비를 50%로 조정 */
     }
   }
 
   @media (min-width: 768px) {
     /* md */
     .responsive-video {
-      @apply w-3/4; /* 태블릿에서는 너비를 75%로 조정 */
+      @apply w-1/2; /* 태블릿에서는 너비를 75%로 조정 */
     }
   }
 
