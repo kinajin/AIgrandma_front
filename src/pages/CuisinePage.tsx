@@ -15,7 +15,7 @@ const CuisinePage: React.FC = () => {
       {/* NavigationButtons */}
       <NavigationButtons />
       {/* video */}
-      <motion.video {...videoProps}>
+      <motion.video {...videoProps} className="responsive-video">
         <source src={foodVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </motion.video>
