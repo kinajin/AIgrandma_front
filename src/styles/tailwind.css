@@ -46,7 +46,7 @@
   }
 
   .responsive-video {
-    @apply w-1/4 h-auto max-h-full;
+    @apply w-1/2 md:w-1/3 lg:w-1/4 h-auto max-h-full;
   }
 
   /* ingredient page */
