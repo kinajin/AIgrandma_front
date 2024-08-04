@@ -94,7 +94,7 @@ const IngredientSelection: React.FC = () => {
       {selectedIngredients.length > 0 && (
         <div className="selected-ingredients-container">
           <h2 className="selected-ingredients-title">
-            🍎 {t('My Ingredient')}
+            🍎 {t('MyIngredients')}
           </h2>
           <div className="flex flex-wrap">
             {selectedIngredients.map((ingredient) => {
