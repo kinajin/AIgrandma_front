@@ -15,7 +15,7 @@ const LanguageSelection: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center gap-2">
+    <div className="white-button-container">
       {languages.map((language) => (
         <button
           key={language.code}

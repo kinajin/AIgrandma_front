@@ -22,6 +22,7 @@ const CuisinePage: React.FC = () => {
 
       {/* title */}
       <h1 className="title">🥘 {t('cuisinePageTitle')}</h1>
+      <h2 className="subtitle">{t('cuisinePageSubtitle')}</h2>
 
       {/* CuisineSelection */}
       <CuisineSelection />

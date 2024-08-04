@@ -1,9 +1,16 @@
-// src/components/LoadingMessages.tsx
 import React, { useEffect, useState } from 'react';
-
-const messages = ['할머니가 만들어줄게', '좀만 기달려', '이제 곧 나온다'];
+import { useTranslation } from 'react-i18next';
 
 const LoadingMessages: React.FC = () => {
+  const { t } = useTranslation();
+  const messages = [
+    t('loadingMessage_1'),
+    t('loadingMessage_2'),
+    t('loadingMessage_3'),
+    t('loadingMessage_4'),
+    t('loadingMessage_5'),
+  ];
+
   const [messageIndex, setMessageIndex] = useState(0);
   const [dots, setDots] = useState('');
 
@@ -20,7 +27,7 @@ const LoadingMessages: React.FC = () => {
       clearInterval(messageInterval);
       clearInterval(dotsInterval);
     };
-  }, []);
+  }, [messages.length]);
 
   return (
     <div className="loading-message">

@@ -19,8 +19,8 @@ const LanguagePage: React.FC = () => {
       </motion.video>
 
       {/* title */}
-      <h1 className="title">👵{t('languagePageTitle')}</h1>
-
+      <h1 className="title">👵 {t('languagePageTitle')}</h1>
+      <h2 className="subtitle">{t('languagePageSubtitle')}</h2>
       {/* LanguageSelection */}
       <LanguageSelection />
     </div>

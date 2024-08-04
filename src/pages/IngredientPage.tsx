@@ -14,6 +14,7 @@ const IngredientPage: React.FC = () => {
 
       {/* title */}
       <h1 className="title">🦐 {t('ingredientPageTitle')}</h1>
+      <h2 className="subtitle">{t('ingredientPageSubtitle')}</h2>
 
       {/* IngredientSelection */}
       <IngredientSelection />

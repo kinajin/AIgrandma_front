@@ -14,7 +14,7 @@ const CuisineSelection: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center gap-2">
+    <div className="white-button-container">
       {cuisines.map((cuisine) => (
         <button
           key={cuisine.cuisineType}

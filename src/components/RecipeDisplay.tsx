@@ -39,15 +39,15 @@ const RecipeDisplay: React.FC = () => {
   }
 
   return (
-    <div className="recipePage-container">
-      <h2 className="recipePage-title">
+    <div>
+      {/* <h2 className="recipePage-title">
         {recipeData.grandmaTalk.map((line, idx) => (
           <div key={idx}>{line}</div>
         ))}
-      </h2>
+      </h2> */}
       {recipeData.recipes.map((recipe, index) => (
         <div key={index} className="recipe-container">
-          <div className="recipe">
+          <div>
             <h3 className="recipe-title">{recipe.title}</h3>
             <h4 className="ingredients-title">{t('Ingredients')}:</h4>
             <ul>

@@ -9,7 +9,7 @@ const RecipePage: React.FC = () => {
   return (
     <div className="page-container">
       <NavigationButtons />
-      <h1 className="title">🧑‍🍳 {t('RecipePageTitle')}</h1>
+      <h1 className="title recipe-page-title">🧑‍🍳 {t('RecipePageTitle')}</h1>
       <RecipeDisplay />
     </div>
   );
