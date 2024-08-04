@@ -20,6 +20,7 @@ const resources = {
       ingredientPageTitle: 'ingredients',
       ingredientPageSubtitle: 'Choose your favorite ingredients!',
       RecipePageTitle: 'Recipe',
+      RecipePageSubtitle: 'Cook with love and enjoy!',
       chinese: 'Chinese',
       japanese: 'Japanese',
       korean: 'Korean',
