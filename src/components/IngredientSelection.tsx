@@ -7,7 +7,7 @@ import '../styles/tailwind.css';
 
 import SearchIcon from '../icons/SearchIcon';
 import ClearIcon from '../icons/ClearIcon';
-import LoadingMessages from '../components/LoadingMessages'; // LoadingMessages 가져오기
+import LoadingMessages from '../components/LoadingMessages';
 
 const IngredientSelection: React.FC = () => {
   const [selectedIngredients, setSelectedIngredients] = useState<string[]>([]);
@@ -89,6 +89,31 @@ const IngredientSelection: React.FC = () => {
       >
         {isLoading ? <LoadingMessages /> : t('submit')}
       </button>
+
+      {/* selected-ingredients */}
+      {selectedIngredients.length > 0 && (
+        <div className="selected-ingredients-container">
+          <h2 className="selected-ingredients-title">
+            🍎 {t('My Ingredient')}
+          </h2>
+          <div className="flex flex-wrap">
+            {selectedIngredients.map((ingredient) => {
+              const ingredientItem = Object.values(categories)
+                .flatMap((category) => category.items)
+                .find((item) => item.label === ingredient);
+              return (
+                <button
+                  key={ingredient}
+                  className="ingredient-button bg-orange-500 text-gray-950 border-orange-500"
+                  onClick={() => handleIngredientToggle(ingredient)}
+                >
+                  {ingredientItem?.emoji} {t(ingredient)}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
 
       {/* ingredient-selection */}
       {Object.keys(filteredCategories).map((category) => (
