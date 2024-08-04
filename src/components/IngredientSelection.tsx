@@ -67,7 +67,7 @@ const IngredientSelection: React.FC = () => {
             value={searchTerm}
             onChange={handleSearchChange}
             className="search-input"
-            placeholder={t('searchIngredients')}
+            // placeholder={t('searchIngredients')}
             aria-label={t('search')}
             required
           />
