@@ -1,7 +1,9 @@
-// src/components/RecipeDisplay.tsx
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import '../styles/tailwind.css';
+import YouTubeVideoList from './YoutubeVideoList';
+import { fetchYoutubeVideos } from '../api/youtubeApi';
+import { YouTubeVideo } from '../types/youtube';
 
 interface Recipe {
   title: string;
@@ -17,13 +19,28 @@ interface RecipeData {
 const RecipeDisplay: React.FC = () => {
   const { t } = useTranslation();
   const [recipeData, setRecipeData] = useState<RecipeData | null>(null);
+  const [youtubeVideos, setYoutubeVideos] = useState<{
+    [key: string]: YouTubeVideo[];
+  }>({});
 
   useEffect(() => {
     const storedRecipeData = localStorage.getItem('recipeData');
     if (storedRecipeData) {
       try {
-        const parsedData = JSON.parse(storedRecipeData);
+        const parsedData = JSON.parse(storedRecipeData) as RecipeData;
         setRecipeData(parsedData);
+
+        parsedData.recipes.forEach(async (recipe: Recipe) => {
+          try {
+            const videos = await fetchYoutubeVideos(recipe.title);
+            setYoutubeVideos((prev) => ({ ...prev, [recipe.title]: videos }));
+          } catch (error) {
+            console.error(
+              `Error fetching YouTube videos for ${recipe.title}:`,
+              error
+            );
+          }
+        });
       } catch (error) {
         console.error('Error parsing JSON data:', error);
         setRecipeData({
@@ -40,11 +57,6 @@ const RecipeDisplay: React.FC = () => {
 
   return (
     <div>
-      {/* <h2 className="recipePage-title">
-        {recipeData.grandmaTalk.map((line, idx) => (
-          <div key={idx}>{line}</div>
-        ))}
-      </h2> */}
       {recipeData.recipes.map((recipe, index) => (
         <div key={index} className="recipe-container">
           <div>
@@ -70,6 +82,7 @@ const RecipeDisplay: React.FC = () => {
                 </li>
               ))}
             </ol>
+            <YouTubeVideoList videos={youtubeVideos[recipe.title] || []} />
           </div>
         </div>
       ))}

@@ -99,13 +99,22 @@
   }
 
   .ingredients-title,
-  .instruction-title {
+  .instruction-title,
+  .youtube-list-title {
     @apply text-white text-lg font-semibold mt-8 mb-2;
   }
 
   .ingredients,
   .instructions {
     @apply text-white ml-5 font-light list-disc mb-2;
+  }
+
+  .youtube-video-container {
+    @apply bg-gradient-to-b from-black to-white/5 rounded-lg shadow-md overflow-hidden outline outline-white/15 outline-1;
+  }
+
+  .youtube-title {
+    @apply text-white text-sm font-semibold line-clamp-2;
   }
 
   .grandma_tip {
